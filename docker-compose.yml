@@ -1,0 +1,23 @@
+services:
+  predictor:
+    build: ./app
+    cpus: 1.0
+    mem_limit: 2g
+    ports:
+      - "8088:8088"
+
+  locust:
+    build:
+      context: .
+      dockerfile: loadtest/Dockerfile
+    cpus: 1.0
+    mem_limit: 512m
+    depends_on:
+      - predictor
+    command:
+      - -f
+      - /work/loadtest/locustfile.py
+      - --host=http://predictor:8088
+      - --web-host=0.0.0.0
+    ports:
+      - "8089:8089"

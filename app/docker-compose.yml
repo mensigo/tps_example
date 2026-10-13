@@ -1,0 +1,7 @@
+services:
+  predictor:
+    build: .
+    cpus: 1.0
+    mem_limit: 2g
+    ports:
+      - "8088:8088"

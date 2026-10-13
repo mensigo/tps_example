@@ -1,0 +1,23 @@
+[project]
+name = "payment-chain-predictor"
+version = "0.1.0"
+description = "Async payment-chain aggregation API"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "numpy>=1.26,<3",
+    "pandas>=2.2,<4",
+    "uvicorn[standard]>=0.30,<1",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.8",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.format]
+quote-style = "single"
